@@ -45,6 +45,7 @@
 				F16AF7F51BA279F10022155C /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		F16AF7F51BA279F10022155C /* Products */ = {
 			isa = PBXGroup;
