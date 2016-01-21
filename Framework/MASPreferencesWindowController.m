@@ -24,7 +24,11 @@ static NSString * PreferencesKeyForViewBounds (NSString *identifier)
 
 @implementation MASPreferencesWindowController
 
-@synthesize viewControllers = _viewControllers;
+//@synthesize viewControllers = _viewControllers;
+- (NSArray*)viewControllers
+{
+    return _viewControllers;
+}
 @synthesize selectedViewController = _selectedViewController;
 @synthesize title = _title;
 @synthesize toolbar = _toolbar;

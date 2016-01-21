@@ -7,6 +7,7 @@
 //     [_preferencesWindowController showWindow:sender]
 //
 
+#import <Cocoa/Cocoa.h>
 #import "MASPreferencesViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -24,9 +25,9 @@ __attribute__((__visibility__("default")))
     NSToolbar * __unsafe_unretained _toolbar;
 }
 
-@property (nonatomic, readonly) NSMutableArray<NSViewController <MASPreferencesViewController> *> *viewControllers;
+@property (nonatomic, readonly) NSArray<NSViewController <MASPreferencesViewController> *> *viewControllers;
 @property (nonatomic, readonly) NSUInteger indexOfSelectedController;
-@property (nonatomic, readonly, retain) NSViewController <MASPreferencesViewController> *selectedViewController;
+@property (nonatomic, readonly, retain, nullable) NSViewController <MASPreferencesViewController> *selectedViewController;
 @property (nonatomic, readonly, nullable) NSString *title;
 @property (nonatomic, assign, nullable) IBOutlet NSToolbar *toolbar;
 
