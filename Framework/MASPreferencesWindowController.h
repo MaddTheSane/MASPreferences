@@ -9,6 +9,8 @@
 
 #import "MASPreferencesViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString *const kMASPreferencesWindowControllerDidChangeViewNotification;
 
 __attribute__((__visibility__("default")))
@@ -26,20 +28,22 @@ __attribute__((__visibility__("default")))
     NSToolbar * __unsafe_unretained _toolbar;
 }
 
-@property (nonatomic, readonly) NSMutableArray *viewControllers;
+@property (nonatomic, readonly) NSMutableArray<NSViewController <MASPreferencesViewController> *> *viewControllers;
 @property (nonatomic, readonly) NSUInteger indexOfSelectedController;
 @property (nonatomic, readonly, retain) NSViewController <MASPreferencesViewController> *selectedViewController;
-@property (nonatomic, readonly) NSString *title;
-@property (nonatomic, assign) IBOutlet NSToolbar *toolbar;
+@property (nonatomic, readonly, nullable) NSString *title;
+@property (nonatomic, assign, nullable) IBOutlet NSToolbar *toolbar;
 
-- (id)initWithViewControllers:(NSArray *)viewControllers;
-- (id)initWithViewControllers:(NSArray *)viewControllers title:(NSString *)title;
+- (instancetype)initWithViewControllers:(NSArray<NSViewController <MASPreferencesViewController> *> *)viewControllers;
+- (instancetype)initWithViewControllers:(NSArray<NSViewController <MASPreferencesViewController> *> *)viewControllers title:(nullable NSString *)title;
 - (void)addViewController:(NSViewController <MASPreferencesViewController> *) viewController;
 
 - (void)selectControllerAtIndex:(NSUInteger)controllerIndex;
 - (void)selectControllerWithIdentifier:(NSString *)identifier;
 
-- (IBAction)goNextTab:(id)sender;
-- (IBAction)goPreviousTab:(id)sender;
+- (IBAction)goNextTab:(nullable id)sender;
+- (IBAction)goPreviousTab:(nullable id)sender;
 
 @end
+
+NS_ASSUME_NONNULL_END

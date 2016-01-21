@@ -4,6 +4,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol MASPreferencesViewController <NSObject>
 
 @optional
@@ -22,3 +24,5 @@
 @property (nonatomic, readonly) NSString *toolbarItemLabel;
 
 @end
+
+NS_ASSUME_NONNULL_END
