@@ -21,15 +21,11 @@ extern NSString * const kMASPreferencesWindowControllerDidChangeViewNotification
  * Window controller for managing Preference view controllers.
  */
 __attribute__((__visibility__("default")))
-#if MAC_OS_X_VERSION_MAX_ALLOWED > MAC_OS_X_VERSION_10_5
 @interface MASPreferencesWindowController : NSWindowController <NSToolbarDelegate, NSWindowDelegate>
-#else
-@interface MASPreferencesWindowController : NSWindowController
-#endif
 {
 @private
     NSMutableArray *_viewControllers;
-    NSMutableDictionary *_minimumViewRects;
+    NSMutableDictionary<NSString*,NSString*> *_minimumViewRects;
     NSString *_title;
     NSViewController <MASPreferencesViewController> *_selectedViewController;
     NSToolbar * __unsafe_unretained _toolbar;
@@ -38,7 +34,7 @@ __attribute__((__visibility__("default")))
 /*!
  * Child view controllers in the Preferences window.
  */
-@property (nonatomic, readonly) NSMutableArray *viewControllers;
+@property (nonatomic, readonly, retain) NSMutableArray *viewControllers;
 
 /*!
  * Index of selected panel in the Preferences window.
@@ -68,7 +64,7 @@ __attribute__((__visibility__("default")))
  *
  * @return A new controller with the given title.
  */
-- (instancetype)initWithViewControllers:(NSArray *)viewControllers title:(NSString * _Nullable)title;
+- (instancetype)initWithViewControllers:(NSArray<NSViewController<MASPreferencesViewController>*> *)viewControllers title:(NSString * _Nullable)title;
 - (instancetype)init __attribute((unavailable("Please use initWithViewControllers:title:")));
 
 /*!
@@ -78,14 +74,14 @@ __attribute__((__visibility__("default")))
  *
  * @return A new controller with title depending on selected view controller.
  */
-- (instancetype)initWithViewControllers:(NSArray *)viewControllers;
+- (instancetype)initWithViewControllers:(NSArray<NSViewController<MASPreferencesViewController>*> *)viewControllers;
 
 /*!
  * Appends new panel to the Preferences window.
  *
  * @param viewController View controller representing new panel.
  */
-- (void)addViewController:(NSViewController <MASPreferencesViewController> *)viewController;
+- (void)addViewController:(NSViewController <MASPreferencesViewController> *)viewController NS_SWIFT_NAME(add(viewController:));
 
 /*!
  * Changes selection in the Preferences toolbar.
