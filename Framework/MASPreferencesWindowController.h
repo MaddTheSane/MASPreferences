@@ -28,7 +28,7 @@ __attribute__((__visibility__("default")))
 #endif
 {
 @private
-    NSMutableArray *_viewControllers;
+    NSMutableArray<NSViewController<MASPreferencesViewController>*> *_viewControllers;
     NSMutableDictionary *_minimumViewRects;
     NSString *_title;
     NSViewController <MASPreferencesViewController> *_selectedViewController;
@@ -38,7 +38,7 @@ __attribute__((__visibility__("default")))
 /*!
  * Child view controllers in the Preferences window.
  */
-@property (nonatomic, readonly) NSMutableArray *viewControllers;
+@property (nonatomic, readonly) NSMutableArray<NSViewController<MASPreferencesViewController>*> *viewControllers;
 
 /*!
  * Index of selected panel in the Preferences window.
@@ -68,7 +68,7 @@ __attribute__((__visibility__("default")))
  *
  * @return A new controller with the given title.
  */
-- (instancetype)initWithViewControllers:(NSArray *)viewControllers title:(NSString * _Nullable)title;
+- (instancetype)initWithViewControllers:(NSArray<NSViewController<MASPreferencesViewController>*> *)viewControllers title:(NSString * _Nullable)title;
 - (instancetype)init __attribute((unavailable("Please use initWithViewControllers:title:")));
 
 /*!
@@ -78,7 +78,7 @@ __attribute__((__visibility__("default")))
  *
  * @return A new controller with title depending on selected view controller.
  */
-- (instancetype)initWithViewControllers:(NSArray *)viewControllers;
+- (instancetype)initWithViewControllers:(NSArray<NSViewController<MASPreferencesViewController>*> *)viewControllers;
 
 /*!
  * Appends new panel to the Preferences window.
