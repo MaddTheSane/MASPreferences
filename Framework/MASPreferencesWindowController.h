@@ -24,7 +24,7 @@ __attribute__((__visibility__("default")))
 @interface MASPreferencesWindowController : NSWindowController <NSToolbarDelegate, NSWindowDelegate>
 {
 @private
-    NSMutableArray *_viewControllers;
+    NSMutableArray<NSViewController<MASPreferencesViewController>*> *_viewControllers;
     NSMutableDictionary<NSString*,NSString*> *_minimumViewRects;
     NSString *_title;
     NSViewController <MASPreferencesViewController> *_selectedViewController;
@@ -34,7 +34,7 @@ __attribute__((__visibility__("default")))
 /*!
  * Child view controllers in the Preferences window.
  */
-@property (nonatomic, readonly, retain) NSMutableArray *viewControllers;
+@property (nonatomic, readonly, retain) NSMutableArray<NSViewController<MASPreferencesViewController>*> *viewControllers;
 
 /*!
  * Index of selected panel in the Preferences window.
