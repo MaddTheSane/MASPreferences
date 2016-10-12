@@ -24,7 +24,7 @@ __attribute__((__visibility__("default")))
 @interface MASPreferencesWindowController : NSWindowController <NSToolbarDelegate, NSWindowDelegate>
 {
 @private
-    NSMutableArray/*<NSViewController<MASPreferencesViewController>*>*/ *_viewControllers;
+    NSMutableArray *_viewControllers;
     NSMutableDictionary<NSString*,NSString*> *_minimumViewRects;
     NSString *_title;
     NSViewController <MASPreferencesViewController> *_selectedViewController;
