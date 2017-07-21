@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  * Unique identifier of the Panel represented by the view controller.
  */
-@property (nonatomic, readonly, nullable) NSString *identifier;
+@property (nonatomic, readonly, nullable) NSUserInterfaceItemIdentifier identifier;
 
 /*!
  * Toolbar icon for the Panel represented by the view controller.
